@@ -964,7 +964,8 @@ body {
 
 /* Hide sidebar and main content when on login screen */
 body.login-mode .sidebar,
-body.login-mode .main-content {
+body.login-mode .main-content,
+body.login-mode .bottom-nav {
     display: none;
 }
 

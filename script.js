@@ -48,6 +48,13 @@ function toggleMobileElements() {
     const sidebar = document.querySelector('.sidebar');
     const bottomNav = document.querySelector('.bottom-nav');
     
+    // Se estiver na tela de login, ocultar ambos os menus
+    if (currentScreen === 'login') {
+        if (sidebar) sidebar.style.display = 'none';
+        if (bottomNav) bottomNav.style.display = 'none';
+        return;
+    }
+    
     if (isMobileDevice()) {
         if (sidebar) sidebar.style.display = 'none';
         if (bottomNav) bottomNav.style.display = 'flex';
@@ -156,6 +163,7 @@ function showLoginScreen() {
     hideAllScreens();
     document.getElementById('loginScreen').classList.add('active');
     currentScreen = 'login';
+    toggleMobileElements(); // Ocultar menus na tela de login
 }
 
 // Mostrar aplicação principal
@@ -165,6 +173,7 @@ function showMainApp() {
     document.getElementById('generateQuestionsScreen').classList.add('active');
     currentScreen = 'generateQuestions';
     updateNavigationActive('generateQuestions');
+    toggleMobileElements(); // Mostrar menus apropriados
 }
 
 // Inicializar formulário de login
